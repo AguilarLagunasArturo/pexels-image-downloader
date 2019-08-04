@@ -26,7 +26,7 @@ You can get an API by [signing up][2] in [Pexels][0] and then [Request access][1
 |options|Specify an [option][5]|No|
 |query|Type a string with the topic of the search|Yes|
 |photos|Type the number of photos you wish to download|Yes|
-|path|Type the path to an existing directory in which the photos will be downloaded. Current directory assumed if not given|No|
+|path|Type the path to an existing directory in which the photos will be downloaded, current directory assumed if not given|No|
 
 ### Options:
 |Option|Description|
@@ -46,7 +46,7 @@ You can get an API by [signing up][2] in [Pexels][0] and then [Request access][1
 - You can only choose one size for the images.
 - The -o option overwrites -d, -i, and -p.
 
-## Examples
+## Examples:
 |Command|Description|
 |:-|:-|
 |`python download.py koala 10`|Download 10 koala images|
@@ -56,7 +56,7 @@ You can get an API by [signing up][2] in [Pexels][0] and then [Request access][1
 |`python download.py -o koala 10`|Download 10 koala images and organized them by photographer|
 |`python download.py koala 10 ~/Pictures`|Download 10 koala images in ~/Pictures|
 |`python download.py -v -s -o koala 50 ~/Pictures`|Download 50 koala images in ~/Pictures with a small size and organized by photographer (You can combine options)|
-|`python download.py 'cats and dogs' 10`|Download 10 'cat and dogs' images (If you want to make a query with spaces make sure to use double or single quotes)|
+|`python download.py 'cats and dogs' 10`|Download 10 'cat and dogs' images (if you want to make a query with spaces use double or single quotes)|
 ---
 #### Packages documentation:
 - [pexels-api][3]
