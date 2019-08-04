@@ -145,10 +145,10 @@ while True:
             # if Verbose
             print("")
             if options["-o"]:
-                print("Subfolder:\t{}".format(dir))
+                print(u"Subfolder:\t{}".format(dir))
             print("Downloading:\t{}".format(photo.original))
             print("Photo url:\t{}".format(photo.url))
-            print("photographer:\t{}".format(photo.photographer))
+            print(u"photographer:\t{}".format(photo.photographer))
             print("Progress:\t{}/{}".format(photos, total_photos))
         else:
             if photos == 1:
