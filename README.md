@@ -15,14 +15,14 @@ Edit pexels_user/\__init\__.py file with your Pexels API as follows:
 ```python
 API_KEY = 'your-pexels-api-key'
 ```
-You can get an API by [signing up][2] in [Pexels][0] and then [Request access][1]
+You can get an API by [signing up][2] in [Pexels][0] and then [Request access][1].
 
 ## Usage:
 `python download.py [options] [query] [photos] [path]`
 
 ### Arguments:
 |Argument|Description|Required|
-|:-------------|:-------------|:-------------|
+|:-|:-|:-|
 |options|Specify an [option][0]|No|
 |query|Type a string with the topic of the search|Yes|
 |photos|Type the number of photos you wish to download|Yes|
@@ -31,15 +31,15 @@ You can get an API by [signing up][2] in [Pexels][0] and then [Request access][1
 ### Options:
 |Option|Description|
 |:-|:-|
-|-v|Verbose mode will print more information about each photo
-|-d|Photos will have a description in their filename
-|-i|Photos will have their pexels id in their filename
-|-p|Photos will have their photographer in their filename
-|-o|Photos will be organized by photographer path/query/photographer/filename with description-pexels-id as filename
-|-c|Download compressed size photos, original aspect ratio
-|-l|Download large size photos, maximum width of 1880px and a maximum height of 1300px, original aspect ratio
-|-m|Download medium size photos, maximum height of 350px and a flexible width, original aspect ratio
-|-s|Download small size photos, maximum height of 130px and a flexible width, original aspect ratio
+|-v|Verbose mode will print information about each photo|
+|-d|Photos will have a description in their filename|
+|-i|Photos will have their pexels id in their filename|
+|-p|Photos will have their photographer in their filename|
+|-o|Photos will be organized by photographer path/query/photographer/filename with description-pexels-id as filename|
+|-c|Download compressed size photos, original aspect ratio|
+|-l|Download large size photos, maximum width of 1880px and a maximum height of 1300px, original aspect ratio|
+|-m|Download medium size photos, maximum height of 350px and a flexible width, original aspect ratio|
+|-s|Download small size photos, maximum height of 130px and a flexible width, original aspect ratio|
 
 ### Notes:
 - By default the images will be downloaded with the original size in path/query/filename and they will be enumerated.  
@@ -52,11 +52,10 @@ You can get an API by [signing up][2] in [Pexels][0] and then [Request access][1
 |`python download.py koala 10`|Download 10 koala images (current directory assumed)|
 |`python download.py -v koala 10`|Download 10 koala images and show information while downloading (current directory assumed)|
 |`python download.py -p koala 10`|Download 10 koala images with the photographer in its filename (current directory assumed)|
-|`python download.py -s koala 10`|Download 10 koala images with a small size (current directory assumed)|
-|`python download.py -o koala 10`|Download 10 koala images and organized them by photographer (current directory assumed)|
+|`python download.py -c koala 10`|Download 10 koala images with a compressed size (current directory assumed)|
 |`python download.py -o koala 10`|Download 10 koala images and organized them by photographer (current directory assumed)|
 |`python download.py koala 10 ~/Pictures`|Download 10 koala images in ~/Pictures|
-|`python download.py -v -c -o koala 10 ~/Pictures`|Download 10 koala images in ~/Pictures with a compressed size and organized by photographer (You can combine options.)|
+|`python download.py -v -s -o koala 50 ~/Pictures`|Download 50 koala images in ~/Pictures with a small size and organized by photographer (You can combine options.)|
 |`python download.py 'cats and dogs' 10`|Download 10 'cat and dogs' images (*__Note__*: If you want to make a query with spaces make sure to use double or single quotes 'your query' or "your query")|
 ---
 #### Packages documentation:

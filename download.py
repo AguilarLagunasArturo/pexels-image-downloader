@@ -13,24 +13,24 @@ long_usage = usage + """\n
 Description:        Download photos from https://www.pexels.com
 Arguments:
     Required:
-        query:      A string with the topic of the search
-        photos:     The number of photos you wish to download
+        query:      A string with the topic of the search.
+        photos:     The number of photos you wish to download.
     Not required:
-        path:       The path to an existing directory in which the photos will be downloaded. Current directory assumed if not given
+        path:       The path to an existing directory in which the photos will be downloaded. Current directory assumed if not given.
         Options:
-            -v:     Verbose mode will print more information about each photo
-            -d:     Photos will have a description in their filename
-            -i:     Photos will have their pexels id in their filename
-            -p:     Photos will have their photographer in their filename
-            -o:     Photos will be organized by photographer path/query/photographer/filename with description-pexels-id as filename
-            -c:     Download compressed size photos, original aspect ratio
-            -l:     Download large size photos, maximum width of 1880px and a maximum height of 1300px, original aspect ratio
-            -m:     Download medium size photos, maximum height of 350px and a flexible width, original aspect ratio
-            -s:     Download small size photos, maximum height of 130px and a flexible width, original aspect ratio
+            -v:     Verbose mode will print information about each photo.
+            -d:     Photos will have a description in their filename.
+            -i:     Photos will have their pexels id in their filename.
+            -p:     Photos will have their photographer in their filename.
+            -o:     Photos will be organized by photographer path/query/photographer/filename with description-pexels-id as filename.
+            -c:     Download compressed size photos, original aspect ratio.
+            -l:     Download large size photos, maximum width of 1880px and a maximum height of 1300px, original aspect ratio.
+            -m:     Download medium size photos, maximum height of 350px and a flexible width, original aspect ratio.
+            -s:     Download small size photos, maximum height of 130px and a flexible width, original aspect ratio.
 Notes:
-By default the photos will be downloaded with the original size in path/query/filename and they will be enumerated.
-You can only choose one size for the photos.
-The -o option overwrites -d, -i, and -p"""
+    By default the photos will be downloaded with the original size in path/query/filename and they will be enumerated.
+    You can only choose one size for the photos.
+    The -o option overwrites -d, -i, and -p."""
 args = sys.argv[1:]
 if len(args) == 0 or (len(args) == 1 and args[0] == "--help"):
     print(long_usage)
@@ -91,7 +91,7 @@ if len(required_args) == 3:
 # Create api object
 api = API(API_KEY)
 # Search photos
-print("Searching:\t{}".format(query))
+print("Searching: {}".format(query))
 per_page = total_photos if total_photos < 80 else 80
 api.search(query, per_page)
 print("Total results: {}".format(api.total_results))
@@ -105,7 +105,7 @@ if total_photos > api.total_results:
 path = os.path.join(path, query.replace(" ", "-"))
 if not os.path.isdir(path):
     os.mkdir(path)
-print("Writing to {}".format(path))
+print("Writing to main folder: {}".format(path))
 # Get photos
 photos = 0
 download_url = ""
@@ -124,7 +124,6 @@ while True:
         if options["-o"]:
             filename = "{}-{}".format(photo.description, photo.id)
             dir = os.path.join(path, photo.photographer.replace(" ", "-"))
-            print("Writing to ", dir)
             if not os.path.isdir(dir):
                 os.mkdir(dir)
         if options["-c"]:
@@ -144,23 +143,24 @@ while True:
             filename += "." + photo.extension if not photo.extension == "jpeg" else ".jpg"
         if options["-v"]:
             # if Verbose
-            print()
+            print("")
+            if options["-o"]:
+                print("Subfolder:\t{}".format(dir))
             print("Downloading:\t{}".format(photo.original))
             print("Photo url:\t{}".format(photo.url))
             print("photographer:\t{}".format(photo.photographer))
             print("Progress:\t{}/{}".format(photos, total_photos))
         else:
-            if photos == total_photos:
-                print("Donwloading: {}/{}".format(photos, total_photos))
+            if photos == 1:
+                print("\nDownloading: {}/{}".format(photos, total_photos))
             else:
-                print("Donwloading: {}/{}".format(photos, total_photos), end="\r")
-        # Download photos
+                print("Downloading: {}/{}".format(photos, total_photos))
         photo_path = os.path.join(dir, filename)
         with open(photo_path, "wb") as f:
             try:
                 f.write(requests.get(download_url, timeout=15).content)
             except:
-                print("Interrupted {} photos dowloaded".format(photos-1))
+                print("Interrupted {} photos dowmloaded".format(photos-1))
                 os.remove(photo_path)
                 if not os.listdir(dir):
                     os.rmdir(dir)
