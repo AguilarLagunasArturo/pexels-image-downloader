@@ -23,7 +23,7 @@ You can get an API by [signing up][2] in [Pexels][0] and then [Request access][1
 ### Arguments:
 |Argument|Description|Required|
 |:-|:-|:-|
-|options|Specify an [option][0]|No|
+|options|Specify an [option][5]|No|
 |query|Type a string with the topic of the search|Yes|
 |photos|Type the number of photos you wish to download|Yes|
 |path|Type the path to an existing directory in which the photos will be downloaded. Current directory assumed if not given|No|
@@ -67,3 +67,4 @@ You can get an API by [signing up][2] in [Pexels][0] and then [Request access][1
 [2]: https://www.pexels.com/join/                       "Pexels: Sign up page"
 [3]: https://github.com/AguilarLagunasArturo/pexels-api "Source code: pexels-api package"
 [4]: https://2.python-requests.org/en/master/           "Documentation: requests package"
+[5]: #options                                           "download.py: options"
