@@ -100,7 +100,7 @@ if not api.json["photos"]: exit()
 # If there aren't enough photos assign new total_photos
 if total_photos > api.total_results:
     total_photos = api.total_results
-    print("There is only {} photos about '{}'".format(total_photos, query))
+    print("Not enough photos, downloading {} photos instead".format(total_photos))
 # Create directory if does not exists
 path = os.path.join(path, query.replace(" ", "-"))
 if not os.path.isdir(path):
