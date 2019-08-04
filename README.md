@@ -55,7 +55,7 @@ You can get an API by [signing up][2] in [Pexels][0] and then [Request access][1
 |`python download.py -c koala 10`|Download 10 koala images with a compressed size|
 |`python download.py -o koala 10`|Download 10 koala images and organized them by photographer|
 |`python download.py koala 10 ~/Pictures`|Download 10 koala images in ~/Pictures|
-|`python download.py -v -s -o koala 50 ~/Pictures`|Download 50 koala images in ~/Pictures with a small size and organized by photographer (You can combine options.)|
+|`python download.py -v -s -o koala 50 ~/Pictures`|Download 50 koala images in ~/Pictures with a small size and organized by photographer (You can combine options)|
 |`python download.py 'cats and dogs' 10`|Download 10 'cat and dogs' images (If you want to make a query with spaces make sure to use double or single quotes)|
 ---
 #### Packages documentation:
