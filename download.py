@@ -13,24 +13,24 @@ long_usage = usage + """\n
 Description:        Download photos from https://www.pexels.com
 Arguments:
     Required:
-        query:      A string with the topic of the search.
-        photos:     The number of photos you wish to download.
+        query:      A string with the topic of the search
+        photos:     The number of photos you wish to download
     Not required:
-        path:       The path to an existing directory in which the photos will be downloaded. Current directory assumed if not given.
-        Options:
-            -v:     Verbose mode will print information about each photo.
-            -d:     Photos will have a description in their filename.
-            -i:     Photos will have their pexels id in their filename.
-            -p:     Photos will have their photographer in their filename.
-            -o:     Photos will be organized by photographer path/query/photographer/filename with description-pexels-id as filename.
-            -c:     Download compressed size photos, original aspect ratio.
-            -l:     Download large size photos, maximum width of 1880px and a maximum height of 1300px, original aspect ratio.
-            -m:     Download medium size photos, maximum height of 350px and a flexible width, original aspect ratio.
-            -s:     Download small size photos, maximum height of 130px and a flexible width, original aspect ratio.
+        path:       The path to an existing directory in which the photos will be downloaded, current directory assumed if not given
+        options:
+            -v:     Verbose mode will print information about each photo
+            -d:     Photos will have a description in their filename
+            -i:     Photos will have their pexels id in their filename
+            -p:     Photos will have their photographer in their filename
+            -o:     Photos will be organized by photographer path/query/photographer/filename with description-pexels-id as filename
+            -c:     Download compressed size photos, original aspect ratio
+            -l:     Download large size photos, maximum width of 1880px and a maximum height of 1300px, original aspect ratio
+            -m:     Download medium size photos, maximum height of 350px and a flexible width, original aspect ratio
+            -s:     Download small size photos, maximum height of 130px and a flexible width, original aspect ratio
 Notes:
-    By default the photos will be downloaded with the original size in path/query/filename and they will be enumerated.
-    You can only choose one size for the photos.
-    The -o option overwrites -d, -i, and -p."""
+    By default the photos will be downloaded with the original size in path/query/filename and they will be enumerated
+    You can only choose one size for the photos
+    The -o option overwrites -d, -i, and -p"""
 args = sys.argv[1:]
 if len(args) == 0 or (len(args) == 1 and args[0] == "--help"):
     print(long_usage)
@@ -160,7 +160,7 @@ while True:
             try:
                 f.write(requests.get(download_url, timeout=15).content)
             except:
-                print("Interrupted {} photos dowmloaded".format(photos-1))
+                print("\nInterrupted {} photos dowmloaded".format(photos-1))
                 os.remove(photo_path)
                 if not os.listdir(dir):
                     os.rmdir(dir)
