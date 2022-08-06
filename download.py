@@ -160,7 +160,7 @@ while True:
             try:
                 f.write(requests.get(download_url, timeout=15).content)
             except:
-                print("\nInterrupted {} photos dowmloaded".format(photos-1))
+                print("\nInterrupted {} photos downloaded".format(photos-1))
                 os.remove(photo_path)
                 if not os.listdir(dir):
                     os.rmdir(dir)
